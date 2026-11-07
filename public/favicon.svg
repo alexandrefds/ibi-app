@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256"><title>IBI — símbolo</title><g transform="translate(-25.62 -30.72) scale(1.202)">
+  <title id="title">Símbolo IBI</title>
+  <path fill="#C45525" d="M128 26a102 102 0 1 0 88.33 153.1l-25.98-15A72 72 0 1 1 128 56V26Z"/>
+  <path fill="#C45525" d="M226.33 77.9A102 102 0 0 0 128 26v30a72 72 0 0 1 62.35 36L226.33 77.9Z"/>
+  <path fill="#C45525" d="M215.9 77.9 190.35 92a72 72 0 0 1 0 72.1l25.98 15A102 102 0 0 0 215.9 77.9Z"/>
+  <circle cx="128" cy="128" r="26" fill="#C45525"/>
+</g></svg>

@@ -1,0 +1,24 @@
+:root {
+  --primary: #c45525;
+  --background: #f7f2ea;
+  --white: #ffffff;
+  --text: #2e2e2e;
+  --border: #d9d9d9;
+  --radius: 14px;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--background);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { min-height: 100%; }
+
+body { margin: 0; }
+
+button, input { font: inherit; }
+
+.brand-logo {
+  display: block;
+  max-width: 100%;
+}

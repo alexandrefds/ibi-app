@@ -1,113 +1,75 @@
 # IBI
 
-Protótipo de marketplace para descobrir produtos e serviços ligados às tradições afro-brasileiras. O projeto busca conectar clientes, lojas e casas/terreiros, oferecendo uma experiência simples, acessível e respeitosa.
+Interface web do IBI, uma plataforma de produtos e serviços sagrados. A aplicação permite que pessoas interessadas em comprar, lojas/casas religiosas e entregadores iniciem seu cadastro na plataforma.
 
-> Este projeto é uma demonstração de interface. O catálogo utiliza dados estáticos e algumas funcionalidades, como pedidos, pagamentos e entregas, ainda não estão conectadas ao backend.
-
-## Funcionalidades
-
-- Explorar produtos e serviços disponíveis.
-- Pesquisar produtos.
-- Filtrar produtos por categoria.
-- Consultar lojas e casas/terreiros.
-- Visualizar informações dos produtos.
-- Adicionar produtos aos favoritos.
-- Adicionar e remover produtos do carrinho.
-- Alterar a quantidade de itens no carrinho.
-- Visualizar a quantidade de itens e o subtotal do carrinho.
-- Navegar entre as principais áreas da aplicação.
-- Interface responsiva para diferentes tamanhos de tela.
+> O projeto está na etapa de interface. Login, cadastro e dashboard ainda não estão conectados a um back-end nem persistem dados.
 
 ## Tecnologias
 
 - React 19
 - Vite 8
-- Tailwind CSS 4
-- Lucide React
-- JavaScript
+- React Router 7
+- TanStack Query 5
+- CSS modular por funcionalidade
 
-## Requisitos
+## Funcionalidades atuais
 
-- Node.js 20.19 ou superior, ou 22.12 ou superior
-- npm
-- Git
+- Tela de login com campos de identificação e senha.
+- Cadastro em três etapas: escolha do perfil, dados pessoais/comerciais e senha.
+- Perfis de comprador, entregador e loja/casa religiosa.
+- Validação visual de senha segura.
+- Tela de confirmação personalizada por perfil após o cadastro.
+- Rota inicial de dashboard.
+- Cliente HTTP reutilizável preparado para consumir uma API por meio de `VITE_API_URL`.
 
-## Como executar
+Veja o índice detalhado em [docs/README.md](docs/README.md).
 
-Clone o repositório:
-
-```bash
-git clone https://github.com/GM20837/IBI-Front-end.git
-```
-
-Entre na pasta do projeto:
-
-```bash
-cd IBI-Front-end
-```
-
-Instale as dependências:
-
-```bash
-npm install
-```
-
-Inicie o servidor de desenvolvimento:
-
-```bash
-npm run dev
-```
-
-O Vite informará no terminal o endereço local para acessar a aplicação.
-
-Para gerar a versão de produção:
-
-```bash
-npm run build
-```
-
-Para visualizar a versão de produção localmente:
-
-```bash
-npm run preview
-```
-
-Para verificar o código com ESLint:
-
-```bash
-npm run lint
-```
-
-## Estrutura do projeto
+## Estrutura
 
 ```text
 src/
-├── assets/        # Imagens, ícones e outros arquivos estáticos
-├── components/    # Componentes reutilizáveis da aplicação
-├── pages/         # Páginas da aplicação
-├── routes/        # Rotas e navegação
-├── services/      # Serviços e comunicação com APIs
-├── styles/        # Estilos e arquivos de configuração visual
-├── App.jsx        # Componente principal da aplicação
-├── index.css      # Estilos globais
-└── main.jsx       # Inicialização do React
-
-public/            # Ícones e arquivos públicos
+├── features/
+│   ├── auth/          # Login e cadastro
+│   └── dashboard/     # Página inicial pós-cadastro
+├── core/              # Cliente de API, constantes e validadores
+├── shared/            # Componentes reutilizáveis e estilos globais
+├── config/            # Configuração do React Query
+└── routes/            # Rotas da aplicação
 ```
 
-## Scripts disponíveis
+## Como executar
 
-| Comando | Ação |
-|---|---|
-| `npm run dev` | Inicia o servidor de desenvolvimento com atualização rápida. |
-| `npm run build` | Gera os arquivos de produção em `dist/`. |
-| `npm run preview` | Serve localmente a compilação de produção. |
-| `npm run lint` | Executa o ESLint nos arquivos do projeto. |
+Pré-requisito: Node.js LTS e npm.
 
-## Sobre o projeto
+```bash
+npm install
+npm run dev
+```
 
-O IBI está sendo desenvolvido como um marketplace web responsivo, com o objetivo de aproximar clientes, lojas, casas/terreiros e entregadores em uma única plataforma.
+O Vite mostrará no terminal a URL local da aplicação.
 
-A aplicação está atualmente em desenvolvimento, com foco inicial na construção da interface e experiência do usuário.
+## Scripts
 
-Novas funcionalidades serão adicionadas conforme a evolução do projeto e a integração com o backend.
+| Comando | Finalidade |
+| --- | --- |
+| `npm run dev` | Inicia o ambiente de desenvolvimento. |
+| `npm run build` | Gera a versão de produção em `dist/`. |
+| `npm run preview` | Serve localmente a versão gerada. |
+| `npm run lint` | Executa a checagem de lint. |
+
+## Configuração da API
+
+Quando houver um back-end, crie um arquivo `.env.local` na raiz:
+
+```env
+VITE_API_URL=https://api.exemplo.com
+```
+
+O cliente em `src/core/services/api/client.js` usa essa variável como prefixo para requisições HTTP. Sem ela, as chamadas são relativas ao mesmo domínio da aplicação.
+
+## Próximos passos de produto
+
+1. Integrar cadastro e login a uma API com autenticação segura.
+2. Implementar dashboards específicos para cada perfil.
+3. Criar catálogo de produtos e serviços, pedidos, pagamentos e entregas.
+4. Substituir os links temporários de termos, privacidade e recuperação de senha por fluxos reais.
